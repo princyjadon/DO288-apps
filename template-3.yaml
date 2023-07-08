@@ -3,8 +3,9 @@ kind: Template
 labels:
   app: cakephp-mysql-example
   template: cakephp-mysql-example
-  name: cakephp-mysql-example  #need to update the correct template name from question
-  namespace: openshift         #need to update the namespace given in question
+metadata:
+  name: php-app
+  namespace: question9  
 objects:
 - apiVersion: v1
   kind: Secret
@@ -114,6 +115,7 @@ objects:
             value: ${DATABASE_ENGINE}
           - name: DATABASE_NAME
             value: ${DATABASE_NAME}
+          - name: DATABASE_USER
           - name: HELLO_MESSAGE
             value: ${HELLO_MESSAGE}
           - name: HELLO_AUDIENCE
