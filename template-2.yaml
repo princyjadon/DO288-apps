@@ -9,7 +9,7 @@ objects:
 - apiVersion: v1
   kind: Secret
   metadata:
-    name: ${NAME}
+    name: testTemplate
   stringData:
     cakephp-secret-token: ${CAKEPHP_SECRET_TOKEN}
     cakephp-security-salt: ${CAKEPHP_SECURITY_SALT}
@@ -86,7 +86,7 @@ objects:
     annotations:
       description: Defines how to deploy the application server
       template.alpha.openshift.io/wait-for-ready: "true"
-    name: ${NAME}
+    name: testTemplate
   spec:
     replicas: 1
     selector:
@@ -259,7 +259,7 @@ objects:
 parameters:
 - description: The name assigned to all of the frontend objects defined in this template.
   displayName: Name
-  name: NAME
+  name: testTemplate
   required: true  #update true 
   value: php-app  #update fix valune name
 - description: The OpenShift Namespace where the ImageStream resides.
