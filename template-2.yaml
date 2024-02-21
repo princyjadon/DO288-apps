@@ -3,13 +3,13 @@ kind: Template
 labels:
   app: cakephp-mysql-example
   template: cakephp-mysql-example
-  name: cakephp-mysql-example  #need to update the correct template name from question
-  namespace: openshift         #need to update the namespace given in question
+  name: php-app              #need to update the correct template name from question
+  namespace: templatequestion         #need to update the namespace given in question
 objects:
 - apiVersion: v1
   kind: Secret
   metadata:
-    name: testTemplate
+    name: ${NAME}
   stringData:
     cakephp-secret-token: ${CAKEPHP_SECRET_TOKEN}
     cakephp-security-salt: ${CAKEPHP_SECURITY_SALT}
@@ -86,7 +86,7 @@ objects:
     annotations:
       description: Defines how to deploy the application server
       template.alpha.openshift.io/wait-for-ready: "true"
-    name: testTemplate
+    name: ${NAME}
   spec:
     replicas: 1
     selector:
@@ -259,7 +259,7 @@ objects:
 parameters:
 - description: The name assigned to all of the frontend objects defined in this template.
   displayName: Name
-  name: testTemplate
+  name: NAME
   required: true  #update true 
   value: php-app  #update fix valune name
 - description: The OpenShift Namespace where the ImageStream resides.
@@ -353,7 +353,7 @@ parameters:
   required: true  #set as true
 - description: The custom Composer mirror URL
   displayName: Custom Composer Mirror URL
-  name: COMPOSER_MIRROR
+name: COMPOSER_MIRROR
 - description: 'The custom MySQL default authentication plugin (default: mysql_native_password), might be changed to caching_sha2_password once PHP client supports it.'
   displayName: MySQL authentication plugin
   name: MYSQL_DEFAULT_AUTHENTICATION_PLUGIN
