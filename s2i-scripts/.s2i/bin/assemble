@@ -11,12 +11,12 @@ config_s2i
 ######## CUSTOMIZATION STARTS HERE ############
 
 echo "---> Installing application source"
-
+ 
 cp -Rf /tmp/src/*.html ./
 
 DATE=`date "+%Y-%M-%d"`
 
-echo "this is today $DATE" >> abc.html
+echo "this is todays datte $DATE"  >> ./info.html
 
 
 
