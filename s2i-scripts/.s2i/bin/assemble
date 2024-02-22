@@ -16,7 +16,7 @@ cp -Rf /tmp/src/*.html ./
 
 DATE=`date "+%Y-%M-%d"`
 
-echo "this is today $DATE" >> abc.html
+echo "this is today $DATE" >>  info.html
 
 
 
