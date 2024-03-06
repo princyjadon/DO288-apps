@@ -1,7 +1,7 @@
 # Use the httpd-parent image as base
 FROM quay.io/redhattraining/httpd-parent
 
-RUN sed -i "s/Listen 80/Listen 8080/g" /etc/httpd/conf/htppd.conf && \
+RUN sed -i "s/Listen 80/Listen 8080/g" /etc/httpd/conf/httpd.conf && \
     sed -i "s/#ServerName wwww.example.com:80/ServerName 0.0.0.0:8080/g" /etc/httpd/conf/httpd.conf && \
     chmod -R 0 /var/log/httpd /var/run/httpd && \
     chgrp -R g=u /var/log/httpd /var/run/httpd
